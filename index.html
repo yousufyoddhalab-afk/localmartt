@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalMart | Shop Local, Get Delivered</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo">Local<span>Mart</span></a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#products">Products</a>
+  </nav>
+  <button class="outline-btn" onclick="showAuth()">Login / Register</button>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <span class="tag">YOUR NEIGHBORHOOD MARKETPLACE</span>
+    <h1>Shop Local.<br><span>Get Delivered.</span></h1>
+    <p>Discover products from local shops near you and get everything delivered to your doorstep.</p>
+    <button class="primary-btn" onclick="showAuth()">Get Started</button>
+    <button class="outline-btn" onclick="detectLocation()">Detect My Location</button>
+    <p id="location">Your location has not been detected yet.</p>
+  </div>
+  <div class="hero-icon">🛍️</div>
+</section>
+
+<section class="section" id="categories">
+  <h2>Explore Categories</h2>
+  <div class="category-grid">
+    <div class="category" onclick="filterCategory('Grocery')">🛒<p>Grocery</p></div>
+    <div class="category" onclick="filterCategory('Vegetables')">🥦<p>Vegetables</p></div>
+    <div class="category" onclick="filterCategory('Dairy')">🥛<p>Dairy</p></div>
+    <div class="category" onclick="filterCategory('Clothing')">👕<p>Clothing</p></div>
+    <div class="category" onclick="filterCategory('Shoes')">👟<p>Shoes</p></div>
+    <div class="category" onclick="filterCategory('Electronics')">📱<p>Electronics</p></div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <h2>Products From Local Shops</h2>
+  <input id="search" class="search" placeholder="Search for vegetables, milk, shoes..." oninput="renderProducts()">
+  <div id="productList" class="product-grid"></div>
+</section>
+
+<section class="section auth-section" id="auth" hidden>
+  <h2>Welcome to LocalMart</h2>
+  <p>Register or login to continue.</p>
+  <div class="auth-box">
+    <label>Account Type</label>
+    <select id="role">
+      <option value="buyer">Buyer</option>
+      <option value="seller">Seller</option>
+      <option value="rider">Rider</option>
+    </select>
+
+    <div id="registerFields">
+      <input id="name" placeholder="Full Name">
+      <input id="phone" placeholder="Phone Number">
+      <input id="email" type="email" placeholder="Email Address">
+      <input id="password" type="password" placeholder="Password">
+      <input id="address" placeholder="Your Address / Area">
+
+      <div id="sellerFields" hidden>
+        <input id="shop" placeholder="Shop Name">
+        <input id="pan" placeholder="PAN Number">
+        <input id="registration" placeholder="Business Registration Number">
+      </div>
+
+      <button class="primary-btn full" onclick="registerUser()">Create Account</button>
+    </div>
+
+    <div class="divider">OR LOGIN</div>
+    <input id="loginEmail" placeholder="Email Address">
+    <input id="loginPassword" type="password" placeholder="Password">
+    <button class="primary-btn full" onclick="loginUser()">Login</button>
+
+    <p class="small">Demo Admin: admin@localmart.com / admin123</p>
+    <button class="text-btn" onclick="closeAuth()">Back to Home</button>
+  </div>
+</section>
+
+<section class="section dashboard" id="dashboard" hidden>
+  <div class="dashboard-heading">
+    <div>
+      <h2 id="dashboardTitle">Dashboard</h2>
+      <p id="welcome"></p>
+    </div>
+    <button class="outline-btn" onclick="logout()">Logout</button>
+  </div>
+  <div id="dashboardContent"></div>
+</section>
+
+<footer>
+  <h2>LocalMart</h2>
+  <p>Supporting local businesses across Nepal.</p>
+  <p>© 2026 LocalMart. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
